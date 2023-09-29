@@ -1,6 +1,6 @@
 ---
 title: "Gov 50 Final Project"
-author: "Your Name Here"
+author: "Aomi Miura"
 description: "My final project"
 output:
   distill::distill_article:
@@ -11,4 +11,5 @@ output:
 
 ## Project thoughts
 
-I am interested in exploring data related to...
+I am interested in exploring data related to the political polarization in the US.
+Ideally, I would like to investigate how people endorsing right/left-leaning media (newspapers, TV, etc.) have a tendency to reinforce their ideological notions. However, individuals' previously-held ideological notions would be a confounder of the possible causality. Therefore, I wish to adopt "Difference-in-difference" research designs.
