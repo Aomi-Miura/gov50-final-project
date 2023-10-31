@@ -30,6 +30,43 @@ My dependent variable is the two-party votes share for Republicans in the 1996 a
 
 If I observe an increase in Republican vote share from the 1996 to the 2000 election in towns where Fox News was available, this would support my Hypothesis (1). On the other hand, if I observe little to no change or a decrease in Republican vote share from 1996 to 2000 in towns with access to Fox News, my Hypothesis (1) would be disproved. Furthermore, if the increase in Republican vote share in black-dominated towns is not as high as that observed in Hypothesis (1), my Hypothesis (2) would be supported. Conversely, if the extent of the increase is similar to that observed in Hypothesis (1), my Hypothesis (2) would be disproved
 
+#　Milestone 3
+
+```{r}
+library(tidyverse)
+data <- read_csv("foxnews.csv")
+data
+View(data)
+```
+
+```{r}
+state_prop_table <- data |>
+  group_by(state) |>
+  summarize(count= n())|>
+  mutate(prop = count / sum(count))|>
+  select(-count)
+
+state_prop_table
+
+state_prop <- state_prop_table|>
+  slice_max(prop, n = 10) |>
+  ggplot(aes(x = prop, y = fct_reorder(state, prop))) +
+  geom_col()+
+  labs(x= "Proportion of Each State included in Data",
+       y = "The Name of States")
+
+state_prop
+```
+
+
+
+
+
+
+
+
+
+
 
 
 
