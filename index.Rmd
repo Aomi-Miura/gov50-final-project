@@ -36,7 +36,6 @@ If I observe an increase in Republican vote share from the 1996 to the 2000 elec
 library(tidyverse)
 data <- read_csv("foxnews.csv")
 data
-View(data)
 ```
 
 ```{r}
