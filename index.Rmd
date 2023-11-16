@@ -30,7 +30,7 @@ My dependent variable is the two-party votes share for Republicans in the 1996 a
 
 If I observe an increase in Republican vote share from the 1996 to the 2000 election in towns where Fox News was available, this would support my Hypothesis (1). On the other hand, if I observe little to no change or a decrease in Republican vote share from 1996 to 2000 in towns with access to Fox News, my Hypothesis (1) would be disproved. Furthermore, if the increase in Republican vote share in black-dominated towns is not as high as that observed in Hypothesis (1), my Hypothesis (2) would be supported. Conversely, if the extent of the increase is similar to that observed in Hypothesis (1), my Hypothesis (2) would be disproved
 
-#　Milestone 3
+##Milestone 3
 
 ```{r}
 library(tidyverse)
@@ -46,7 +46,9 @@ state_prop_table <- data |>
   select(-count)
 
 state_prop_table
+```
 
+```{r}
 state_prop <- state_prop_table|>
   slice_max(prop, n = 10) |>
   ggplot(aes(x = prop, y = fct_reorder(state, prop))) +
@@ -57,10 +59,34 @@ state_prop <- state_prop_table|>
 state_prop
 ```
 
+##Milestone 4
+```{r}
+data <- data |>
+  mutate(treatment = if_else(subrf2000 == 1, "Treatment", "Control")) |>
+  filter(treatment == "Treatment" | treatment == "Control") |>
+  mutate(change_1996_2000 = gopvoteshare2000 - gopvoteshare1996)
 
+avg_change <- data |>
+  summarize(mean_1996_2000 = mean(change_1996_2000, na.rm = TRUE))
 
+avg_change
+```
 
+```{r}
+DID <- data |>
+  group_by(treatment) |>
+  summarize(avg_change = mean(vote_change)) |>
+  pivot_wider(names_from = treatment,
+              values_from = avg_change) |>
+  mutate(DID = Treatment - Control)
 
+DID
+```
+The first hypothesis of the research was that the introduction of FOX News increased the Republican vote share in presidential elections.
+However, difference-in-difference research conducted above indicate that the hypothesis has been disapproved.
+
+In this context, treatment group are towns where FOX news were already introduced as of 2000, while control group are those where FOX did not enter yet. 
+The average change of the DOP vote shares between 1996 and 2000 election in FOX-available towns were 0.04277223, whereas that in FOX-unavailable towns were 0.06888928, indicating that the introduction of FOX news in the town actually decreased the DOP vote share. This could potentially suggest that the entry of FOX news in the town have backfired and alliniated the voters away from Republican support.
 
 
 
