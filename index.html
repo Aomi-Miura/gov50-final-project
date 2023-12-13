@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["foxnews.csv","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-2-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.24/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["foxnews.csv","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-2-1.png","index_files/figure-html5/unnamed-chunk-3-1.png","index_files/figure-html5/unnamed-chunk-4-1.png","index_files/figure-html5/unnamed-chunk-6-1.png","index_files/figure-html5/unnamed-chunk-7-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.24/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/kePrint-0.0.1/kePrint.js","index_files/lightable-0.0.1/lightable.css","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js","MIP-Dataset_2022.csv"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1473,6 +1473,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   <!--/radix_placeholder_distill-->
   <script src="index_files/header-attrs-2.24/header-attrs.js"></script>
+  <script src="index_files/kePrint-0.0.1/kePrint.js"></script>
+  <link href="index_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
   <script src="index_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="index_files/popper-2.6.0/popper.min.js"></script>
   <link href="index_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -1517,80 +1519,711 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
-<h2 id="project-thoughts">Project thoughts</h2>
-<p>I am interested in exploring data related to the political polarization in the US.
-Ideally, I would like to investigate how people endorsing right/left-leaning media (newspapers, TV, etc.) have a tendency to reinforce their ideological notions. However, individuals’ previously-held ideological notions would be a confounder of the possible causality. Therefore, I wish to adopt “Difference-in-difference” research designs.</p>
-<p>##Milestone 2</p>
-<p>Does biased media influence people’s voting behavior, and if so, does the extent of this influence vary based on race?
-In this study, I plan to examine the impact of the introduction of Fox News into the television market in the 1990s on the increase in Republican votes share in Presidential elections in selected towns.</p>
-<p>I hypothesize that (1) the introduction of FOX News increased the Republican vote share in presidential elections, and (2) the extent of the increase in Republican vote share was more modest in towns with a higher proportion of black population compared to those with a comparatively lower proportion of black population (Hypothesis (2) is based on the premise that Hypothesis (1) will be supported).</p>
-<p>Recent behavioral and cognitive studies suggest that voters can be subjected to the media. However, given that African American people are generally not strong supporters of the Republican party and are often against Republican policies in general, the effects of media persuasion may be limited in towns with a predominantly black population.</p>
-<p>The dataset I am going to use is “Fox News Rollout.” (<a href="https://www.dropbox.com/s/i1n16wng61tq02x/foxnews.csv?dl=0" class="uri">https://www.dropbox.com/s/i1n16wng61tq02x/foxnews.csv?dl=0</a>)</p>
-<p>There will be two independent variables: the first variable will indicate whether Fox News was introduced as of 2000, coded as 1 for Fox News already being introduced and 0 for Fox News not being introduced yet. The second variable will represent the proportion of black population in each targeted town in 1990. I will set a suitable threshold to distinguish towns with a relatively higher black population from those with a lower proportion.
-My dependent variable is the two-party votes share for Republicans in the 1996 and 2000 Presidential elections. For example, if the difference between Republican vote shares in 1996 and 2000 is positive, it indicates an increase in Republican vote share in the town.</p>
-<p>If I observe an increase in Republican vote share from the 1996 to the 2000 election in towns where Fox News was available, this would support my Hypothesis (1). On the other hand, if I observe little to no change or a decrease in Republican vote share from 1996 to 2000 in towns with access to Fox News, my Hypothesis (1) would be disproved. Furthermore, if the increase in Republican vote share in black-dominated towns is not as high as that observed in Hypothesis (1), my Hypothesis (2) would be supported. Conversely, if the extent of the increase is similar to that observed in Hypothesis (1), my Hypothesis (2) would be disproved</p>
-<p>#　Milestone 3</p>
+<p>##Introdution
+What are the factors that prolong the US military intervention? In this study, I plan to identify the factors that are likely to drag out the US military interventions in state B. I hypothesize the intensity of actions undertaken by the US during the interventions and the number of actors involved in interventions matter. That is, (1) the higher hostility the US shows, the longer the intervention will be, and (2) The more actors involved in the intervention, the longer the intervention will last. Regarding the first hypothesis, the database contains various types of interventions, ranging from “no militarized actions,” “Threat to use force”, “display of force”, “Use of force” to “wars”. Therefore, I estimated that the higher the level of hostility is, the more likely the intervention would be tangled and the longer it would be prolonged. Regarding the second hypothesis, liberalism, a theory of international relations, theorizes that the more actors involved, the more difficult it will be to reach international cooperation because each actor has its own motives and objectives. Thus, based on this liberalism explanation, I assumed that the more actors involved in interventions, the more tangled and protracted the intervention will be.
+The research question is important and interesting for a better and deeper understanding of the nature of the US military interventions. The United States has intervened in other countries for a variety of reasons, including economic objectives, democracy promotion, and humanitarian intervention, but interventions are sometimes expectedly prolonged. Additionally, whatever the purpose of the intervention, prolonged intervention is likely to have a negative impact on country B. Therefore, investigating under what circumstances military intervention becomes prolonged is crucial for future policy prescriptions. Furthermore, the research also contributes to the testing of the validity of the international relation theory, as the second hypothesis is rooted in liberalism.</p>
+##Data Section
+The dataset I employed for the research is “Military Intervention Project (MIP).” It is a recently-published, comprehensive dataset of all US military interventions during 1776 to 2019 by Professor Sidita Kushi and Professor Monica Duffy Toft. There are more than 200 variables contained in the dataset.
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
-<span><span class='va'>data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"foxnews.csv"</span><span class='op'>)</span></span>
-<span><span class='va'>data</span></span></code></pre>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/tidymodels/infer'>infer</a></span><span class='op'>)</span></span>
+<span><span class='va'>mip</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"MIP-Dataset_2022.csv"</span><span class='op'>)</span></span>
+<span><span class='va'>mip</span></span></code></pre>
 </div>
-<pre><code># A tibble: 10,126 × 12
-   state town       college1990 male1990 black1990 hisp1990 income1990
-   &lt;chr&gt; &lt;chr&gt;            &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;
- 1 Ak    Angoon          0.164     0.549   0        0.0171        3.21
- 2 Ak    Barrow          0.183     0.527   0.00656  0.0211        5.67
- 3 Ak    Bethel          0.219     0.522   0.00779  0.0170        4.22
- 4 Ak    Cordova         0.175     0.544   0.00138  0.0313        4.63
- 5 Ak    Craig           0.165     0.535   0        0.0309        4.72
- 6 Ak    Dillingham      0.213     0.503   0        0.0118        4.41
- 7 Ak    Eielson         0.145     0.555   0.116    0.0544        2.59
- 8 Ak    Fairbanks       0.183     0.540   0.126    0.0484        3.20
- 9 Ak    Galena          0.151     0.681   0.0371   0.00248       2.86
-10 Ak    Gambell         0.0383    0.575   0        0             1.59
-# ℹ 10,116 more rows
-# ℹ 5 more variables: logincome1990 &lt;dbl&gt;, subrf2000 &lt;dbl&gt;,
-#   gopvoteshare1992 &lt;dbl&gt;, gopvoteshare1996 &lt;dbl&gt;,
-#   gopvoteshare2000 &lt;dbl&gt;</code></pre>
+<pre><code># A tibble: 570 × 245
+   `State B` `State B code` styear `StateB primary target?` Name      
+   &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;                    &lt;chr&gt;     
+ 1 FRN       220              1798 1                        Quasi War 
+ 2 LIB       620              1801 1                        First Bar…
+ 3 MEX       70               1806 0                        Arrest of…
+ 4 SPN, FRN  220, 230         1806 0 (pirates)              Gulf of M…
+ 5 SPN       230              1810 1                        Annexatio…
+ 6 SPN       230              1812 1                        Patriot W…
+ 7 UKG       200              1812 1                        War of 18…
+ 8 SPN       230              1813 1                        Occupatio…
+ 9 CUB       40               1814 &lt;NA&gt;                     &lt;NA&gt;      
+10 UKG       200              1814 1                        &lt;NA&gt;      
+# ℹ 560 more rows
+# ℹ 240 more variables: Location &lt;chr&gt;, dispnum &lt;chr&gt;,
+#   RemoveCase &lt;dbl&gt;, stday &lt;dbl&gt;, stmon &lt;dbl&gt;, endday &lt;dbl&gt;,
+#   endmon &lt;dbl&gt;, endyear &lt;dbl&gt;, Ongoing &lt;dbl&gt;, cumdurat &lt;dbl&gt;,
+#   Era &lt;dbl&gt;, Decade &lt;dbl&gt;, PresName &lt;chr&gt;, `Frontier War` &lt;dbl&gt;,
+#   Era2 &lt;dbl&gt;, `US HiHost` &lt;dbl&gt;, `US HighAct` &lt;dbl&gt;,
+#   `dyadic hostility` &lt;dbl&gt;, `dyadic HighAct` &lt;dbl&gt;, …</code></pre>
 </div>
+Among these variables, my outcome variable of interest is cumulative dispute days of each intervention. The units for the variable are in days and are measured by experts. Here are the plots about the frequency distribution of the length of military interventions contained in the data. The plot show that a decent number of interventions lasted only for a day, while a few lasted for almost 10000 days.
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>state_prop_table</span> <span class='op'>&lt;-</span> <span class='va'>data</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>state</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span>count<span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>prop <span class='op'>=</span> <span class='va'>count</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>count</span><span class='op'>)</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>count</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>state_prop_table</span></span></code></pre>
-</div>
-<pre><code># A tibble: 28 × 2
-   state    prop
-   &lt;chr&gt;   &lt;dbl&gt;
- 1 Ak    0.00425
- 2 Al    0.0193 
- 3 Ar    0.0164 
- 4 Ca    0.0414 
- 5 Ct    0.0154 
- 6 Hi    0.00356
- 7 Ia    0.0271 
- 8 Id    0.00909
- 9 Ma    0.0289 
-10 Me    0.0308 
-# ℹ 18 more rows</code></pre>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>state_prop</span> <span class='op'>&lt;-</span> <span class='va'>state_prop_table</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span><span class='va'>prop</span>, n <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>prop</span>, y <span class='op'>=</span> <span class='fu'><a href='https://forcats.tidyverse.org/reference/fct_reorder.html'>fct_reorder</a></span><span class='op'>(</span><span class='va'>state</span>, <span class='va'>prop</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x<span class='op'>=</span> <span class='st'>"Proportion of Each State included in Data"</span>,</span>
-<span>       y <span class='op'>=</span> <span class='st'>"The Name of States"</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>state_prop</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>#Visualization of the length of military intervention in the dataset</span></span>
+<span><span class='va'>mip</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>cumdurat</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_histogram.html'>geom_histogram</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='st'>"black"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_log10</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Length of the Military Interventions"</span>,</span>
+<span>       y <span class='op'>=</span> <span class='st'>"Count"</span>,</span>
+<span>       title <span class='op'>=</span> <span class='st'>"Frequency Distribution of the Length of Military Interventions"</span><span class='op'>)</span></span></code></pre>
 </div>
 <p><img src="index_files/figure-html5/unnamed-chunk-2-1.png" width="624" /></p>
 </div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>My explanatory variable for the first hypothesis is the hostility level reached by the US. It is coded = 1 for “No militarized Action”, = 2 for “Threat to use force”, = 3 for “Display of force”, = 4 for “Use of force” and = 5 for “War.” The variable is measured by the expert. Followings are the proportion table and bar chart indicating how frequently each hostility level occurs throughout the entire data set. These show that “display of force” and “use of force” account for approximately 70% of all interventions in the data set.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>mip</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>`US HiHost`</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>`US HiHost`</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span>count <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>prop <span class='op'>=</span> <span class='va'>count</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>count</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>count</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span>digits <span class='op'>=</span> <span class='fl'>3</span>, col.names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"US Highest Hostility Level"</span>, <span class='st'>"Proportions"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+</div>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">US Highest Hostility Level</th>
+<th style="text-align: right;">Proportions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.092</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.049</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.435</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.396</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.028</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>mip</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>`US HiHost`</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='va'>`US HiHost`</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='st'>"salmon"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Highest Hostility Level reached by the US"</span>,</span>
+<span>       y <span class='op'>=</span> <span class='st'>"Count"</span>, </span>
+<span>       title <span class='op'>=</span> <span class='st'>"Frequency of Each Hostility Level"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_discrete.html'>scale_x_discrete</a></span><span class='op'>(</span>labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"No Militarized action"</span>, <span class='st'>"Threat to use force"</span>, <span class='st'>"Display of force"</span>, <span class='st'>"Use of force"</span>, <span class='st'>"War"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
+</div>
+<p>The explanatory variable for the second hypothesis is the intervention type. It is coded = 1 for “unilateral” interventions (conducted solely by the US), = 2 for “Multilateral non-UN” interventions, = 3 for “Multilateral UN interventions” and = 4 for other interventions. The variable is measured by the experts. Followings are the proportion table and bar chart indicating how frequent each intervention type is throughout the entire data set. The unilateral interventions account for more than 60% of all interventions. Interventions coded as 4 in this variable are filtered out in this study because they may include many other types of interventions that do not fall under the first three codes.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>#The types of intervention</span></span>
+<span><span class='va'>mip</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>InterType</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>InterType</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span>count <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>prop <span class='op'>=</span> <span class='va'>count</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>count</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>count</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span>digits <span class='op'>=</span> <span class='fl'>3</span>, col.names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Internvention Type"</span>, <span class='st'>"Proportions"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+</div>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Internvention Type</th>
+<th style="text-align: right;">Proportions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.663</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.204</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.045</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.088</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>mip</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>InterType</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='va'>InterType</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='st'>"royalblue"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Intervention Type"</span>,</span>
+<span>       y <span class='op'>=</span> <span class='st'>"Count"</span>,</span>
+<span>       title <span class='op'>=</span> <span class='st'>"Frequeny of Each Intervention Type"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_discrete.html'>scale_x_discrete</a></span><span class='op'>(</span>labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Unilateral"</span>, <span class='st'>"Multilateral non-UN"</span>, <span class='st'>"Multilateral UN"</span>, <span class='st'>"Other"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+</div>
+<p>Finally, in the following regression, I will employ “national interest index” as additional predictor. The National Interest Index indicates how high national security the US has for the interventions. It is an additive index measured by contiguity between the US and state B, Whether the state B is or was the US colony or not, whether the US is allied with State B or not, and whether state B has a significant amount of oil in its territory. The index is measured by experts.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>#National Interest Index</span></span>
+<span><span class='va'>mip</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>`National Interest Index`</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='va'>`National Interest Index`</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='st'>"lightblue"</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"National Interest Index"</span>,</span>
+<span>       y <span class='op'>=</span> <span class='st'>"Count"</span><span class='op'>)</span></span></code></pre>
+</div>
+<img src="index_files/figure-html5/unnamed-chunk-7-1.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_discrete.html'>scale_x_discrete</a></span><span class='op'>(</span>labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"1"</span>, <span class='st'>"2"</span>, <span class='st'>"3"</span>, <span class='st'>"4"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>&lt;ggproto object: Class ScaleDiscretePosition, ScaleDiscrete, Scale, gg&gt;
+    aesthetics: x xmin xmax xend
+    axis_order: function
+    break_info: function
+    break_positions: function
+    breaks: waiver
+    call: call
+    clone: function
+    dimension: function
+    drop: TRUE
+    expand: waiver
+    get_breaks: function
+    get_breaks_minor: function
+    get_labels: function
+    get_limits: function
+    guide: waiver
+    is_discrete: function
+    is_empty: function
+    labels: 1 2 3 4
+    limits: NULL
+    make_sec_title: function
+    make_title: function
+    map: function
+    map_df: function
+    n.breaks.cache: NULL
+    na.translate: TRUE
+    na.value: NA
+    name: waiver
+    palette: function
+    palette.cache: NULL
+    position: bottom
+    range: environment
+    range_c: environment
+    rescale: function
+    reset: function
+    scale_name: position_d
+    train: function
+    train_df: function
+    transform: function
+    transform_df: function
+    super:  &lt;ggproto object: Class ScaleDiscretePosition, ScaleDiscrete, Scale, gg&gt;</code></pre>
+</div>
+##Result Section
+First, in order to test the first hypothesis, I regressed the cumulative dispute days on the highest hostility level reached by the US. The resulting coefficients were -312.9 on the intercept and 188.0 on the slope. This means that a one-level increase in the hostility level of the US actions will result in the prolonged interventions by 188.9 days. We obtain 2.04e-07
+of p-value, meaning that we can reject the null hypothesis that there is no difference in length of military interventions at 0.05 level. Therefore, the regression suggests that the higher hostility of the US actions does prolong the interventions, and the effect of higher hostility on the length of intervention is statistically significant.
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>mip_fit1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>cumdurat</span> <span class='op'>~</span> <span class='va'>`US HiHost`</span>, data <span class='op'>=</span> <span class='va'>mip</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'>modelsummary</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/modelsummary/man/modelsummary.html'>modelsummary</a></span><span class='op'>(</span><span class='va'>mip_fit1</span>,</span>
+<span>                           statistic <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"s.e. = {std.error}"</span>,</span>
+<span>                                         <span class='st'>"p = {p.value}"</span><span class='op'>)</span>,</span>
+<span>                           gof_map <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"nobs"</span>, <span class='st'>"r.squared"</span>, <span class='st'>"adj.r.squared"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+</div>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+ (1)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:center;">
+−312.875
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+s.e. = 118.341
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+p = 0.008
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+US HiHost
+</td>
+<td style="text-align:center;">
+188.042
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+s.e. = 35.700
+</td>
+</tr>
+<tr>
+<td style="text-align:left;box-shadow: 0px 1.5px">
+</td>
+<td style="text-align:center;box-shadow: 0px 1.5px">
+p = &lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Num.Obs.
+</td>
+<td style="text-align:center;">
+514
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R2
+</td>
+<td style="text-align:center;">
+0.051
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R2 Adj.
+</td>
+<td style="text-align:center;">
+0.050
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>However, there may be some confounding variables that affect both outcome and explanatory variables. For example, if important US national interests are at stake, such as access to oil, it is more likely that the US exhibit more intense actions or higher hostility towards state B during the intervention. Moreover, when important national interests are at stake, the U.S. may prolong military intervention even if the situations are not in its favor. Therefore, we next add the “national interest index” as a predictor variable and conduct a multiple regression analysis.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>mip_fit2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>cumdurat</span> <span class='op'>~</span> <span class='va'>`US HiHost`</span> <span class='op'>+</span> <span class='va'>`National Interest Index`</span>, data <span class='op'>=</span> <span class='va'>mip</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'>modelsummary</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/modelsummary/man/modelsummary.html'>modelsummary</a></span><span class='op'>(</span><span class='va'>mip_fit2</span>,</span>
+<span>                           statistic <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"s.e. = {std.error}"</span>,</span>
+<span>                                         <span class='st'>"p = {p.value}"</span><span class='op'>)</span>,</span>
+<span>                           gof_map <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"nobs"</span>, <span class='st'>"r.squared"</span>, <span class='st'>"adj.r.squared"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+</div>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+ (1)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:center;">
+−288.817
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+s.e. = 125.764
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+p = 0.022
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+US HiHost
+</td>
+<td style="text-align:center;">
+188.203
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+s.e. = 35.816
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+p = &lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+National Interest Index
+</td>
+<td style="text-align:center;">
+−24.322
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+s.e. = 40.730
+</td>
+</tr>
+<tr>
+<td style="text-align:left;box-shadow: 0px 1.5px">
+</td>
+<td style="text-align:center;box-shadow: 0px 1.5px">
+p = 0.551
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Num.Obs.
+</td>
+<td style="text-align:center;">
+512
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R2
+</td>
+<td style="text-align:center;">
+0.052
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R2 Adj.
+</td>
+<td style="text-align:center;">
+0.049
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The multiple regression results show that the coefficient of the highest hostility level reached by the U.S. is 188.20 and the coefficient of the national interest index is -24.32. This indicates that a one-step increase in the hostility level of the U.S. action would prolong the intervention by 188.20 days, keeping the national interest index fixed. The p-value obtained for the U.S. hostility level is 2.18e-07, which is still below the alpha (0.05) level.
+Thus, the null hypothesis that there is no difference in the length of military intervention when controlling for the national interest level is rejected, and the effect of the hostility level is statistically significant. The multi-regression shows the coefficient on the highest hostility level reached by the US is 188.20 and the coefficient on the National Interest Index is -24.32. This indicates that a one-level increase in the hostility level of the US actions will prolong interventions by 188.20 days, holding the national interest index fixed. The p-value obtained for the US hostility level is 2.18e-07, which is still below the alpha (0.05) level. Therefore, even when the national interest level is controlled, the null hypothesis that there is no difference in the length of military interventions can be rejected, and the effect of hostility levels is statistically significant.
+Furthermore, it is plausible that more hostile actions, such as the use of force, will prolong interventions more than the less hostile actions such as display of force. Thus, the level of hostility and the length of intervention can be interpreted causally, even though there may be other confounding factors that affect both the outcome and explanatory variables.</p>
+Next, in order to test the second hypothesis, I regressed the cumulative dispute days on the intervention types after filtering for the only first three intervention types. The resulting coefficients were -97.30 on the intercept and 170.45 on the slope. This indicates that the one-level increase in the scale of the intervention (ranging from unilateral, multilateral without United Nations, or multilateral with United Nations) will prolong the intervention by 170.45 days. We obtain a 0.0237 of p-value, meaning that we can reject the null hypothesis of no difference in the length of intervention at the 0.05 level.
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>mip_type</span> <span class='op'>&lt;-</span> <span class='va'>mip</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>InterType</span> <span class='op'>!=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>mip_fit3</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>cumdurat</span> <span class='op'>~</span> <span class='va'>InterType</span>, data <span class='op'>=</span> <span class='va'>mip_type</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>mip_fit3</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>
+Call:
+lm(formula = cumdurat ~ InterType, data = mip_type)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-607.6 -266.7 -252.7  -92.7 8165.3 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)    97.30     107.54   0.905   0.3662  
+InterType     170.45      75.01   2.272   0.0237 *
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 802.1 on 359 degrees of freedom
+  (23 observations deleted due to missingness)
+Multiple R-squared:  0.01418,   Adjusted R-squared:  0.01143 
+F-statistic: 5.164 on 1 and 359 DF,  p-value: 0.02365</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>modelsummary</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/modelsummary/man/modelsummary.html'>modelsummary</a></span><span class='op'>(</span><span class='va'>mip_fit3</span>,</span>
+<span>                           statistic <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"s.e. = {std.error}"</span>,</span>
+<span>                                         <span class='st'>"p = {p.value}"</span><span class='op'>)</span>,</span>
+<span>                           gof_map <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"nobs"</span>, <span class='st'>"r.squared"</span>, <span class='st'>"adj.r.squared"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+</div>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+ (1)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:center;">
+97.299
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+s.e. = 107.536
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+p = 0.366
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+InterType
+</td>
+<td style="text-align:center;">
+170.450
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+s.e. = 75.008
+</td>
+</tr>
+<tr>
+<td style="text-align:left;box-shadow: 0px 1.5px">
+</td>
+<td style="text-align:center;box-shadow: 0px 1.5px">
+p = 0.024
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Num.Obs.
+</td>
+<td style="text-align:center;">
+361
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R2
+</td>
+<td style="text-align:center;">
+0.014
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R2 Adj.
+</td>
+<td style="text-align:center;">
+0.011
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>However, as in the first case, the national interest index can be a potential confounding variable for causal effects. Moreover, the hostility level reached by the US was found to be a statistically significant variable that affects the length of interventions. Therefore, I conducted multiple regressions with the US hostility level and national interest index added as predictors.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>mip_fit4</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>cumdurat</span> <span class='op'>~</span> <span class='va'>InterType</span> <span class='op'>+</span> <span class='va'>`US HiHost`</span> <span class='op'>+</span> <span class='va'>`National Interest Index`</span>, data <span class='op'>=</span> <span class='va'>mip_type</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>mip_fit4</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>
+Call:
+lm(formula = cumdurat ~ InterType + `US HiHost` + `National Interest Index`, 
+    data = mip_type)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-739.7 -377.8 -148.9    0.8 8023.4 
+
+Coefficients:
+                          Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                -817.74     258.30  -3.166  0.00168 ** 
+InterType                   165.54      74.60   2.219  0.02712 *  
+`US HiHost`                 270.70      67.14   4.032 6.78e-05 ***
+`National Interest Index`   -21.00      51.84  -0.405  0.68560    
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 788.6 on 355 degrees of freedom
+  (25 observations deleted due to missingness)
+Multiple R-squared:  0.0571,    Adjusted R-squared:  0.04913 
+F-statistic: 7.166 on 3 and 355 DF,  p-value: 0.0001104</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>modelsummary</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/modelsummary/man/modelsummary.html'>modelsummary</a></span><span class='op'>(</span><span class='va'>mip_fit4</span>,</span>
+<span>                           statistic <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"s.e. = {std.error}"</span>,</span>
+<span>                                         <span class='st'>"p = {p.value}"</span><span class='op'>)</span>,</span>
+<span>                           gof_map <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"nobs"</span>, <span class='st'>"r.squared"</span>, <span class='st'>"adj.r.squared"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+</div>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+ (1)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:center;">
+−817.736
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+s.e. = 258.301
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+p = 0.002
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+InterType
+</td>
+<td style="text-align:center;">
+165.538
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+s.e. = 74.599
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+p = 0.027
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+US HiHost
+</td>
+<td style="text-align:center;">
+270.698
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+s.e. = 67.143
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+p = &lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+National Interest Index
+</td>
+<td style="text-align:center;">
+−21.005
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+s.e. = 51.842
+</td>
+</tr>
+<tr>
+<td style="text-align:left;box-shadow: 0px 1.5px">
+</td>
+<td style="text-align:center;box-shadow: 0px 1.5px">
+p = 0.686
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Num.Obs.
+</td>
+<td style="text-align:center;">
+359
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R2
+</td>
+<td style="text-align:center;">
+0.057
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R2 Adj.
+</td>
+<td style="text-align:center;">
+0.049
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Multi-regression results show that the coefficient on the intervention type was 165.54, indicating that increasing the intervention size by one additional level, keeping the other two variables fixed, would extend the intervention duration by 165.54 days. The p-value obtained for the intervention type was 0.02712; therefore, the null hypothesis can be rejected at the 0.05 level and the effect of intervention type on intervention duration is statistically significant. Moreover, the explanation that larger interventions involving multiple actors lead to longer interventions sounds plausible. Therefore, the relationship between intervention type and the intervention duration is not simply a correlation, but can be interpreted as causal.</p>
+<p>##Conclusion
+In summary, the first hypothesis that the higher hostility reached by the US will lead to the longer interventions was supported; one-level increase in the intensity of actions by the US did prolong the interventions, and this trend remained unchanged even when the level of national interest, a potential confounding factor, was fixed. In response to the second hypothesis that the more actors involved in the intervention will prolong the interventions longer, it was supported to some extent; a one-unit increase in the size of interventions prolonged the interventions, even with the level of the US national interest and the level of hostility were controlled for. However, the explanatory variable employed in this research has only three scales: unilateral interventions, multilateral intervention without UN, and multilateral intervention with UN, which does not make this variable ideal for the predictor of the regression Among multilateral interventions without UN intervention, for instance, some are coalitions of only the U.S. and the U.K., while others can be coalitions of the U.S. and NATO countries, and these need to be distinguished. Therefore, a variable that includes the exact number of actors and countries involved in each intervention would be the ideal for testing the second hypothesis. Future research can improve the analysis by running a regression with such variables. Lastly, the regressions ran in this research were constrained by the dataset. In other words, the regressions did not incorporate as predictors other variables that were not included in the data set but could be confounding variables. but are not contained on the dataset. The study would be further improved if another dataset were combined with the MIP dataset and examined if the statistical significance of the variables of interest remained after controlling for those other variables.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
