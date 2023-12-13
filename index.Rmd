@@ -12,7 +12,7 @@ output:
 
 
 ##Data Section
-	The dataset I employed for the research is "Military Intervention Project (MIP)." It is a recently-published, comprehensive dataset of all US military interventions during 1776 to 2019 by Professor Sidita Kushi and Professor Monica Duffy Toft. There are more than 200 variables contained in the dataset. 
+	The dataset I employed for the research is "Military Intervention Project (MIP)." It is a recently-published, comprehensive dat aset of all US military interventions during 1776 to 2019 by Professor Sidita Kushi and Professor Monica Duffy Toft. There are more than 200 variables contained in the dataset. This study is a cross-sectional research design as the data does not include the dynamic in terms of time.
 ```{r}
 library(tidyverse)
 library(infer)
