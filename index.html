@@ -1673,7 +1673,7 @@ Among these variables, my outcome variable of interest is cumulative dispute day
 </div>
 <p><img src="index_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
 </div>
-<p>Finally, in the following regression, I will employ “national interest index” as additional predictor. The National Interest Index indicates how high national security the US has for the interventions. It is an additive index measured by contiguity between the US and state B, Whether the state B is or was the US colony or not, whether the US is allied with State B or not, and whether state B has a significant amount of oil in its territory. The index is measured by experts.</p>
+<p>Finally,the following regression uses “national interest index” as an additional predictor variable. The national interest index indicates how high the US has national security the US has vis-a-vis interventions. The index is an additive index measured by contiguity between the US and state B, whether the state B is or was the US colony or not, whether the US is allied with State B or not, and whether state B has a significant amount of oil in its territory. The index is measured by experts.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>#National Interest Index</span></span>
@@ -1682,53 +1682,10 @@ Among these variables, my outcome variable of interest is cumulative dispute day
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='va'>`National Interest Index`</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='st'>"lightblue"</span><span class='op'>)</span> <span class='op'>+</span> </span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"National Interest Index"</span>,</span>
-<span>       y <span class='op'>=</span> <span class='st'>"Count"</span><span class='op'>)</span></span></code></pre>
+<span>       y <span class='op'>=</span> <span class='st'>"Count"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_discrete.html'>scale_x_discrete</a></span><span class='op'>(</span>labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"1"</span>, <span class='st'>"2"</span>, <span class='st'>"3"</span>, <span class='st'>"4"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
 </div>
-<img src="index_files/figure-html5/unnamed-chunk-7-1.png" width="624" />
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_discrete.html'>scale_x_discrete</a></span><span class='op'>(</span>labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"1"</span>, <span class='st'>"2"</span>, <span class='st'>"3"</span>, <span class='st'>"4"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
-</div>
-<pre><code>&lt;ggproto object: Class ScaleDiscretePosition, ScaleDiscrete, Scale, gg&gt;
-    aesthetics: x xmin xmax xend
-    axis_order: function
-    break_info: function
-    break_positions: function
-    breaks: waiver
-    call: call
-    clone: function
-    dimension: function
-    drop: TRUE
-    expand: waiver
-    get_breaks: function
-    get_breaks_minor: function
-    get_labels: function
-    get_limits: function
-    guide: waiver
-    is_discrete: function
-    is_empty: function
-    labels: 1 2 3 4
-    limits: NULL
-    make_sec_title: function
-    make_title: function
-    map: function
-    map_df: function
-    n.breaks.cache: NULL
-    na.translate: TRUE
-    na.value: NA
-    name: waiver
-    palette: function
-    palette.cache: NULL
-    position: bottom
-    range: environment
-    range_c: environment
-    rescale: function
-    reset: function
-    scale_name: position_d
-    train: function
-    train_df: function
-    transform: function
-    transform_df: function
-    super:  &lt;ggproto object: Class ScaleDiscretePosition, ScaleDiscrete, Scale, gg&gt;</code></pre>
+<p><img src="index_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
 </div>
 ##Result Section
 First, in order to test the first hypothesis, I regressed the cumulative dispute days on the highest hostility level reached by the US. The resulting coefficients were -312.9 on the intercept and 188.0 on the slope. This means that a one-level increase in the hostility level of the US actions will result in the prolonged interventions by 188.9 days. We obtain 2.04e-07
@@ -2223,7 +2180,7 @@ R2 Adj.
 <p>Multi-regression results show that the coefficient on the intervention type was 165.54, indicating that increasing the intervention size by one additional level, keeping the other two variables fixed, would extend the intervention duration by 165.54 days. The p-value obtained for the intervention type was 0.02712; therefore, the null hypothesis can be rejected at the 0.05 level and the effect of intervention type on intervention duration is statistically significant. Moreover, the explanation that larger interventions involving multiple actors lead to longer interventions sounds plausible. Therefore, the relationship between intervention type and the intervention duration is not simply a correlation, but can be interpreted as causal.</p>
 <p>##Conclusion
 In summary, the first hypothesis that the higher hostility reached by the US will lead to the longer interventions was supported; one-level increase in the intensity of actions by the US did prolong the interventions, and this trend remained unchanged even when the level of national interest, a potential confounding factor, was fixed. In response to the second hypothesis that the more actors involved in the intervention will prolong the interventions longer, it was supported to some extent; a one-unit increase in the size of interventions prolonged the interventions, even with the level of the US national interest and the level of hostility were controlled for. However, the explanatory variable employed in this research has only three scales: unilateral interventions, multilateral intervention without UN, and multilateral intervention with UN, which does not make this variable ideal for the predictor of the regression Among multilateral interventions without UN intervention, for instance, some are coalitions of only the U.S. and the U.K., while others can be coalitions of the U.S. and NATO countries, and these need to be distinguished. Therefore, a variable that includes the exact number of actors and countries involved in each intervention would be the ideal for testing the second hypothesis. Future research can improve the analysis by running a regression with such variables. Lastly, the regressions ran in this research were constrained by the dataset. In other words, the regressions did not incorporate as predictors other variables that were not included in the data set but could be confounding variables. but are not contained on the dataset. The study would be further improved if another dataset were combined with the MIP dataset and examined if the statistical significance of the variables of interest remained after controlling for those other variables.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

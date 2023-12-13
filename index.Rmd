@@ -76,7 +76,7 @@ mip |>
        title = "Frequeny of Each Intervention Type") +
   scale_x_discrete(labels = c("Unilateral", "Multilateral non-UN", "Multilateral UN", "Other"))
 ```
-  Finally, in the following regression, I will employ "national interest index" as additional predictor. The National Interest Index indicates how high national security the US has for the interventions. It is an additive index measured by contiguity between the US and state B, Whether the state B is or was the US colony or not, whether the US is  allied with State B or not, and whether state B has a significant amount of oil in its territory. The index is measured by experts.
+  Finally,the following regression uses "national interest index" as an additional predictor variable. The national interest index indicates how high the US has national security the US has vis-a-vis interventions. The index is an additive index measured by contiguity between the US and state B, whether the state B is or was the US colony or not, whether the US is allied with State B or not, and whether state B has a significant amount of oil in its territory. The index is measured by experts.
 
 ```{r}
 #National Interest Index
@@ -85,7 +85,7 @@ mip |>
   ggplot(aes(x = as.factor(`National Interest Index`))) +
   geom_bar(fill = "lightblue") + 
   labs(x = "National Interest Index",
-       y = "Count")
+       y = "Count") +
   scale_x_discrete(labels = c("1", "2", "3", "4"))
 ```
 
