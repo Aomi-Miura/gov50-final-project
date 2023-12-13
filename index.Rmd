@@ -14,7 +14,9 @@ The research question is important and interesting for a better and deeper under
 
 
 ## Data Section
-	The dataset I employed for the research is "Military Intervention Project (MIP)." It is a recently-published, comprehensive data set of all US military interventions during 1776 to 2019 by Professor Sidita Kushi and Professor Monica Duffy Toft. There are more than 200 variables contained in the dataset. This study is a cross-sectional research design.
+
+The dataset I employed for the research is "Military Intervention Project (MIP)." It is a recently-published, comprehensive data set of all US military interventions during 1776 to 2019 by Professor Sidita Kushi and Professor Monica Duffy Toft. There are more than 200 variables contained in the dataset. This study is a cross-sectional research design.
+	
 ```{r}
 library(tidyverse)
 library(infer)
@@ -94,10 +96,9 @@ mip |>
 
 ## Result Section
 
-
-
 First, in order to test the first hypothesis, I regressed the cumulative dispute days on the highest hostility level reached by the US. The resulting coefficients were -312.9 on the intercept and 188.0 on the slope. This means that a one-level increase in the hostility level of the US actions will result in the prolonged interventions by 188.9 days. We obtain 2.04e-07
 of p-value, meaning that we can reject the null hypothesis that there is no difference in length of military interventions at 0.05 level. Therefore, the regression suggests that the higher hostility of the US actions does prolong the interventions longer, and the effect of high hostility level on the length of intervention is statistically significant. 
+
 ```{r}
 mip_fit1 <- lm(cumdurat ~ `US HiHost`, data = mip)
 
@@ -121,10 +122,8 @@ The multi-regression shows the coefficient on the highest hostility level reache
 Furthermore, it is plausible that more hostile actions, such as the use of force, will prolong interventions more than the less hostile actions such as display of force. Thus, the relationship between the level of hostility and the length of intervention can be interpreted causally, even if there may be other confounding factors that affect both the outcome and explanatory variables.
 
 
-
-
-
 Next, in order to test the second hypothesis, I regressed the cumulative dispute days on the intervention types after filtering for the only first three intervention types. The resulting coefficients were -97.30 on the intercept and 170.45 on the slope. This indicates that the one-level increase in the scale of the intervention (ranging from unilateral, multilateral without United Nations, or multilateral with United Nations) will prolong the intervention by 170.45 days. We obtain a 0.0237 of p-value, meaning that we can reject the null hypothesis of no difference in the length of intervention at the 0.05 level. 
+
 ```{r}
 mip_type <- mip |>
   filter(InterType != 4)
