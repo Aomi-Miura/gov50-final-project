@@ -9,6 +9,7 @@ output:
 ## Introdution
 
 	What are the factors that prolong the US military intervention? In this study, I plan to identify the factors that are likely to drag out the US military interventions in state B. I hypothesize the intensity of actions undertaken by the US during the interventions and the number of actors involved in interventions matter. That is, (1) the higher hostility the US shows, the longer the intervention will be, and (2) The more actors involved in the intervention, the longer the intervention will last. Regarding the first hypothesis, the database contains various types of interventions, ranging from "no militarized actions," "threat to use force", "display of force", "use of force" to "wars". Therefore, I estimated that the higher the level of hostility is, the more likely the intervention would be tangled and the longer it would be prolonged. Regarding the second hypothesis, liberalism, a theory of international relations, theorizes that the more actors involved, the more difficult it will be to reach international cooperation because each actor has its own motives and objectives. Thus, based on this liberalism explanation, I assumed that the more actors involved in interventions, the more tangled and protracted the intervention will be.
+	
 	The research question is important and interesting for a better and deeper understanding of the nature of the US military interventions. The United States has intervened in other countries for a variety of reasons, including economic objectives, democracy promotion, and humanitarian intervention, but  interventions are sometimes unexpectedly prolonged. Additionally, whatever the purpose of the intervention, prolonged intervention is likely to have a negative impact on country B. Therefore,  investigating under what circumstances military intervention becomes prolonged is crucial for future policy prescriptions. Furthermore, the research also contributes to the testing of the validity of the international relation theory, as the second hypothesis is rooted in liberalism.
 
 
@@ -92,6 +93,7 @@ mip |>
 ```
 
 ## Result Section
+
   First, in order to test the first hypothesis, I regressed the cumulative dispute days on the highest hostility level reached by the US. The resulting coefficients were -312.9 on the intercept and 188.0 on the slope. This means that a one-level increase in the hostility level of the US actions will result in the prolonged interventions by 188.9 days. We obtain 2.04e-07
 of p-value, meaning that we can reject the null hypothesis that there is no difference in length of military interventions at 0.05 level. Therefore, the regression suggests that the higher hostility of the US actions does prolong the interventions longer, and the effect of high hostility level on the length of intervention is statistically significant. 
 ```{r}
@@ -115,6 +117,8 @@ modelsummary::modelsummary(mip_fit2,
 ```
   The multi-regression shows the coefficient on the highest hostility level reached by the US is 188.20 and the coefficient on the National Interest Index is -24.32. This indicates that a one-level increase in the hostility level of the US actions will prolong interventions by 188.20 days, holding the national interest index fixed. The p-value obtained for the US hostility level is 2.18e-07, which is still below the alpha (0.05) level. Therefore, even when the national interest level is controlled, the null hypothesis that there is no difference in the length of military interventions can be rejected, and the effect of hostility levels is statistically significant. 
 Furthermore, it is plausible that more hostile actions, such as the use of force, will prolong interventions more thanthe less hostile actions such as display of force. Thus, the relationship between the level of hostility and the length of intervention can be interpreted causally, even if there may be other confounding factors that affect both the outcome and explanatory variables.
+
+
   Next, in order to test the second hypothesis, I regressed the cumulative dispute days on the intervention types after filtering for the only first three intervention types. The resulting coefficients were -97.30 on the intercept and 170.45 on the slope. This indicates that the one-level increase in the scale of the intervention (ranging from unilateral, multilateral without United Nations, or multilateral with United Nations) will prolong the intervention by 170.45 days. We obtain a 0.0237 of p-value, meaning that we can reject the null hypothesis of no difference in the length of intervention at the 0.05 level. 
 ```{r}
 mip_type <- mip |>
